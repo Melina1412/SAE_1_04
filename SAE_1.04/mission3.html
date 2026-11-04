@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mission 3 - SAE 1.04 KDou</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <header>
+            <nav>
+                <label for="toggle">☰</label>
+                <input type="checkbox" id="toggle">
+                <ul class="nav-bar">
+                    <li><a href="rapport.html">Accueil</a></li>
+                    <li><a href="mission1.html">Mission 1</a></li>
+                    <li><a href="mission2.html">Mission 2</a></li>
+                    <li><a href="mission3.html" class="active">Mission 3</a></li>
+                    <li><a href="conclusion.html">Conclusion</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section>
+                <h1>Contexte</h1>
+                <p>L’objectif de cette troisième et dernière mission est d’exploiter la base
+                    de données de l’entreprise KDou pour produire des indicateurs calculés
+                    pertinents.</p>
+
+                <h1>Analyse des données </h1>
+
+                <h2><strong>Énoncé 1 : </strong>KDou s’intéresse aux desserts et aux boissons dans sa réflexion en lien
+                    avec la santé. On veut le chiffre d’affaires généré (montant total des ventes de KDou) par les
+                    catégories desserts ou boissons par année.</h2>
+                <p> KDou se demande ce qu’il faut changer dans son offre, voici un indicateur à calculer : On veut
+                    connaître le chiffre d’affaires total généré chaque année par les catégories Desserts et Boissons.
+                    Cet indicateur sert à connaître l’évolution de l'achat de ces produits, pour adapter son offre.</p>
+                <div class="image">
+                    <img src="images/mission_3_1_code.png" alt="code SQL" width="589">
+                    <img src="images/mission_3_1_requete-modified.png" alt="requête Access">
+                </div>
+                <p>Les résultats montrent que le chiffre d’affaires varie selon les années, les desserts sont souvent
+                    plus vendus que les boissons. Donc KDou devrait surveiller ces tendances et proposer davantage de
+                    produits sains ou naturels dans ces catégories.</p>
+
+                <h2><strong>Énoncé 2 : </strong>KDou se demande ce qu’il faut changer dans son offre, voici un
+                    indicateur à calculer : Le nombre de produits carnés non commandés actuellement ?</h2>
+                 <p>On veut connaître le nombre de produits carnés non commandés actuellement. Cet indicateur permet
+                    d’enlever ces produits de l’offre puisque personne ne les commande.</p>
+                <div class="image">
+                    <img src="images/mission_3_2_code.png" alt="code SQL">
+                    <img src="images/mission_3_2_requete-modified.png" alt="requête Access">
+                </div>
+                <p>Les résultats montrent que certains produits de la catégorie “Viandes” n’ont jamais été commandés.
+                    KDou pourrait les retirer du catalogue ou repenser cette gamme avec des produits alternatifs plus
+                    attractifs.</p>
+
+                <h2><strong>Énoncé 3 : </strong>KDou étudie les provenances de ses produits : Quel CA total a été généré
+                    à ce jour avec ces fournisseurs hors UE ?</h2>
+                <p>On veut calculer le chiffre d’affaires total lié aux fournisseurs situés hors de l’Union européenne.
+                    Cela peut permettre de constater l’importance ou non de ces fournisseurs pour peut-être privilégier
+                    les fournisseurs plus proches de la France.</p>
+                <div class="image">
+                    <img src="images/mission_3_3_code.png" alt="code SQL">
+                    <img src="images/mission_3_3_requete-modified.png" alt="requête Access">
+                </div>
+                <p>Les résultats montrent qu’une part importante du chiffre d’affaires provient de fournisseurs hors UE.
+                    KDou pourrait privilégier des fournisseurs européens ou locaux afin de réduire les coûts, les délais
+                    et l’impact environnemental.</p>
+
+                <h2><strong>Énoncé 4 : </strong>KDou se demande ce qu’il faut changer dans son offre, voici un
+                    indicateur à calculer : Le nombre de produits carnés non commandés actuellement ?</h2>
+                <p>On veut connaître le nombre de produits carnés non commandés actuellement. Cet indicateur permet
+                    d’enlever ces produits de l’offre puisque personne ne les commande.</p>
+                <div class="image">
+                    <img src="images/mission_3_4_sql.png" alt="code SQL">
+                    <img src="images/mission_4_tab.png" alt="requête Access">
+                </div>
+                <p>Les résultats montrent que certains produits de la catégorie “Viandes” n’ont jamais été commandés.
+                    KDou pourrait les retirer du catalogue ou repenser cette gamme avec des produits alternatifs plus
+                    attractifs.</p>
+            </section>
+
+            <section>
+                <h1>Proposition d’indicateurs </h1>
+                <h2><strong>Audrey</strong></h2>
+                <p>Combien il y a de produits dans chaque catégorie ? Cette requête permet de comparer le nombre de
+                    produits entre chaque catégorie, pour constater l’état de l’offre de produit actuel et si celle-ci
+                    penche plus vers des produits moins sains. Cela permettrait d’améliorer la répartition des produits
+                    en augmentant l’offre de produits plus sains.</p>
+                <div class="image">
+                    <img src="images/mission_3a_code.png" alt="code SQL">
+                    <img src="images/mission_3a_requete-modified.png" alt="requête Access">
+                </div>
+                <h2><strong>Djazia</strong></h2>
+                <p>Quels sont les fournisseurs et leur pays d’origine qui proposent des produits des catégories
+                    “Viandes” ou “Poissons” ?Cette requête permet d’identifier les fournisseurs situés loin de la France
+                    pour ces catégories de produits. Cela aide KDou à repérer les partenaires dont la distance pourrait
+                    augmenter le risque de péremption des viandes et poissons.</p>
+                <div class="image">
+                    <img src="images/mission_3dj_code.png" alt="code SQL">
+                    <img src="images/mission_3dj_requete-modified.png" alt="requête Access">
+                </div>
+                <h2><strong>Mélina</strong></h2>
+                <p>Quels sont les produits les moins vendus chez chaque fournisseur ? Cet indicateur permet à Kdou
+                    de repérer les produits qui ont le moins de succès auprès des clients. Une fois identifiés,
+                    Kdou peut décider de les retirer de l'offre ce qui permettrait de réduire ses coûts en plus
+                    de diminuer drastiquement le gaspillage alimentaire.
+                </p>
+                <div class="image">
+                    <img src="images/indic_perso_sql.png" alt="code SQL">
+                    <img src="images/indic_perso.png" alt="requête Access">
+                </div>
+                <h2><strong>Dany</strong></h2>
+                <p>Afficher le chiffre d’affaires total généré par chaque catégorie de produits, pour savoir quels
+                    types de produits rapportent le plus à KDou. Cet indicateur aide KDou à comprendre quelles familles
+                    de produits sont les plus rentables. Cela permet de décider s’il faut renforcer certaines catégories
+                    ou réduire celles qui rapportent peu.</p>
+                <div class="image">
+                    <img src="images/mission_3d_code.png" alt="code SQL">
+                    <img src="images/mission_3d_requete-modified.png" alt="requête Access">
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p> 2026 - SAE 1.04 | Projet KDou - BUT Informatique</p>
+        </footer>
+    </body>
+</html>
