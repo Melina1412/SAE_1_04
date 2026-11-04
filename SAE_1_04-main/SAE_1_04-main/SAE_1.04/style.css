@@ -1,0 +1,254 @@
+:root {
+    /* Couleurs principales */
+    --primary: #2f89c5;
+    --primary-light: #00CFFF;
+
+    /* Couleurs de fond */
+    --bg-body: #0e0e0e;
+    --bg-pimary: #1b1b1b;
+
+    /* Couleurs de texte */
+    --text: #f3f3f3;
+
+    /* Couleurs de bordures et ombres */
+    --border-table: #383737;
+    --shadow: rgba(0, 0, 0, 0.4);
+    --shadow-hover: rgba(64, 164, 255, 0.7);
+    --shadow-img: rgba(47, 137, 197, 0.5);
+}
+
+/*--GÉNÉRALITÉS--*/
+body {
+    display: grid;
+    grid-template-rows: 55px 1fr auto;
+    grid-template-areas: "header"
+                         "main"
+                         "footer";
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+strong {
+    color:var(--primary-light);
+    font-weight: 700;
+}
+
+/*--BARRE DE NAVIGATION--*/
+header {
+    grid-area: header;
+    background-color: var(--bg-pimary);
+    border-bottom: 2px solid var(--primary);
+    position: fixed;
+    width: 100% ;
+    z-index: 99;
+}
+
+label, #toggle {
+    display: none; /*La checkbox qui est caché de base*/
+}
+
+.nav-bar {
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-bar > li{
+    margin: 10px 15px;
+    z-index: 3;
+}
+
+li > a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.5rem;
+    padding: 15px 15px;
+    border-radius: 6px;
+    transition: background 0.3s, color 0.3s;
+}
+
+/*Effet sur les titres des différentes pages*/
+li > a:hover,
+li > a.active,
+li > a#active {
+    background-color: var(--primary);
+    color: var(--text);
+}
+
+/*--CONTENUS DANS LE MAIN--*/
+main {
+    grid-area: main;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 30px;
+    background-color: var(--bg-pimary);
+    box-shadow: 0 0 12px var(--shadow);
+}
+
+h1 {
+    color: var(--primary-light);
+    margin-top: 35px;
+    font-size: 1.8rem;
+    border-left: 4px solid var(--primary-light);
+    padding-left: 10px;
+}
+
+h2 {
+    color: var(--text);
+    margin-top: 35px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: justify;
+}
+
+
+p {
+    margin: 12px 0;
+    text-align: justify;
+    color: var(--text);
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+    gap: 20px;
+}
+
+.image > img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin: 5px;
+    box-shadow: 0 0 10px var(--shadow-img);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/*Quand on passe sur l'image*/
+.image > img:hover {
+    box-shadow: 0 0 12px var(--shadow-hover);
+    transform: scale(1.15);
+    z-index: 5;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/*Tableau*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    border: 2px solid var(--bg-pimary);
+    color: var(--text);
+    background-color: var(--border-table);
+}
+
+th, td {
+    border: 2px solid var(--bg-pimary);
+    padding: 8px 10px;
+    text-align: center;
+}
+
+th {
+    color: var(--primary-light);
+}
+
+/*--PIED DE PAGE--*/
+footer {
+    padding : 10px 0;
+    grid-area: footer;
+    background-color: var(--bg-pimary);
+    border-top: 2px solid var(--primary);
+}
+
+footer > p{
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text);
+    margin: 0;
+}
+
+/*--RESPONSIVE SUR UN PETIT ÉCRAN--*/
+@media (max-width: 844px) {
+    body {
+        display: grid;
+        grid-template-rows: 55px 1fr auto;
+        grid-template-areas: "header"
+                             "main"
+                             "footer";
+    }
+
+    /*Nav bar*/
+    header{
+        position: relative;
+    }
+    #toggle:checked + .nav-bar{
+        display: flex; /*On le rend visible*/
+    }
+
+    .nav-bar {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        border: 2px solid var(--primary);
+        padding: 1rem;
+        margin-top: 50px;
+        background-color: var(--bg-pimary);
+        border-radius: 6px;
+    }
+
+    label {
+        display: block;
+        position: absolute;
+        text-align: center;
+        font-size:2rem;
+        color: var(--text);
+        margin: 0 10px;
+    }
+
+    .nav-bar > li {
+        margin: 8px 0;
+    }
+
+    li > a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 10px;
+        font-size: 1.1rem;
+    }
+
+    li > a:hover,
+    li > a.active,
+    li > a#active {
+        padding-bottom: 0;
+    }
+
+    /*Main*/
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    h2 {
+        font-size: 1rem;
+    }
+
+    th, td{
+        padding: 4px 5px;
+    }
+     p{
+         font-size: 0.8rem;
+     }
+}
+
+
+

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mission 2 - SAE 1.04 KDou</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <header>
+            <nav>
+                <label for="toggle">☰</label>
+                <input type="checkbox" id="toggle">
+                <ul class="nav-bar">
+                    <li><a href="rapport.html">Accueil</a></li>
+                    <li><a href="mission1.html">Mission 1</a></li>
+                    <li><a href="mission2.html" class="active">Mission 2</a></li>
+                    <li><a href="mission3.html">Mission 3</a></li>
+                    <li><a href="conclusion.html">Conclusion</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section>
+                <h1>Contexte</h1>
+                <p>L’objectif de cette mission est de commencer à exploiter la base de données de l’entreprise KDou pour
+                    pouvoir par la suite avoir des analyses et indicateurs pertinents. On souhaite faire des requêtes
+                    avec le logiciel Low Code Access.</p>
+            </section>
+
+            <section>
+                <h1>Indicateur intéressant</h1>
+                <p>La requête j, qui est décrit dans la suite, est une requête qui montre les couples de clients situés à Paris.
+                    Cet indicateur est utile pour l'objectif de responsabilité écologique de l'entreprise.
+                    En effet, cette requête peut permettre à l'entreprise d'optimiser ses livraisons. Identifier les clients proches
+                    permettrait de grouper les livraisons et donc de réduire non seulement les coûts de transports, mais aussi l'empreinte carbone de Kdou.
+                </p>
+            </section>
+
+            <section>
+                <h1>Questions avec leur réponse</h1>
+                <p>Dans les réponses il y a l'interprétation, le code SQL et la requête Access ou un extrait de celle-ci.</p>
+
+                <h2><strong>Question a :</strong> Clients parisiens triés par société Une seule table. On filtre sur la ville, pas sur
+                        le code postal un client parisien a le code 76001</h2>
+                <p>J'ai considéré comme parisien tout client dont la ville commence par Paris.
+                      Je n'ai pas filtré sur le code postal car l'un de ces clients a un code postal erroné</p>
+                <div class="image">
+                    <img src="images/mission_2a_code.png.webp" alt="code SQL">
+                    <img src="images/mission_2a_requete-modified.png.webp" alt="requête Access">
+                </div>
+
+                <h2><strong>Question b :</strong> Produits américains à moins de 25 € Produit → Fournisseur → Pays pour
+                        l'origine, Categorie pour calculer le prix de vente</h2>
+                <p>L'origine d'un produit est le pays de son fournisseur. Le « prix » pouvant
+                        désigner le coût d'achat ou le prix de vente, j'affiche les deux (prix de vente = coût ×
+                        coefficient de marge de la catégorie). « Moins de 25 » est compris au sens strict.</p>
+                <div class="image">
+                    <img src="images/mission_2b_code.png.webp" alt="code SQL">
+                    <img src="images/mission_2b_requete-modified.png.webp" alt="requête Access">
+                </div>
+
+                <h2><strong>Question c :</strong> Viandes ou poissons à plus de 50 €</h2>
+                <p>La catégorie « poissons » correspond à ‘Poissons et fruits de mer’. Les deux
+                        catégories sont gardées avec IN, le coût est strictement supérieur à 50.</p>
+                <div class="image">
+                    <img src="images/mission_2c_code.webp" alt="code SQL">
+                    <img src="images/mission_2c_requete-modified.png.webp" alt="requête Access">
+                </div>
+
+                <h2><strong>Question d :</strong> Quels sont les fournisseurs qui proposent de la viande ou du poisson ?</h2>
+                <p>Dans cette requête on cherche les fournisseurs qui proposent de la viande ou du poisson. Elle peut permettre
+                    à Kdou de les identifier afin de mieux gérer les approvisionnements ou encore pour les comparer entre eux et choisir
+                    les plus intéressants.
+                </p>
+                <div class="image">
+                    <img src="images/mission_2d_code.png" alt="code SQL">
+                    <img src="images/mission_2d_requete-modified.png" alt="requête Access">
+                </div>
+
+                <h2><strong>Question f :</strong> Quels sont les produits conditionnés dans du carton ou dans du verre ?</h2>
+                <p>Cette requête informe sur quels produits sont emballés dans du carton ou du verre, ce qui pourrait
+                    permettre aux livreurs de mieux organiser leur camion, en plaçant les produits en verre au-dessus
+                    des autres pour éviter la casse.</p>
+                <div class="image">
+                    <img src="images/mission_2f_code.png" alt="code SQL">
+                    <img src="images/mission_2f_requete-modified.png" alt="requête Access">
+                </div>
+
+                <h2><strong>Question g :</strong> Quelles sont les 3 dernières commandes du client Max Deschamps ?</h2>
+                <p>Cette requête renvoie les 3 dernières commandes de Max Deschamps. Elle permet, par exemple, de
+                    retrouver rapidement les informations en cas de réclamation.</p>
+                <div class="image">
+                    <img src="images/mission_2g_code.png" alt="code SQL">
+                    <img src="images/mission_2g_requete-modified.png" alt="requête Access">
+                </div>
+
+                <h2><strong>Question h :</strong> Fournisseurs qui ne proposent que des desserts</h2>
+                <p>« Que des desserts » signifie : au moins un dessert et aucun produit d'une
+                    autre catégorie (le code de la catégorie Desserts est 3). Sans la première condition, les
+                        fournisseurs sans produit seraient aussi retournés.</p>
+                <div class="image">
+                    <img src="images/mission_2h_code.png.webp" alt="code SQL">
+                    <img src="images/mission_2h_requete-modified.png.webp" alt="requête Access">
+                </div>
+
+                <h2><strong>Question i :</strong> Fournisseurs hors France sans produit</h2>
+                <p>Pays différent de France, et aucun produit rattaché. C'est la différence entre
+                        tous les fournisseurs étrangers et ceux qui ont au moins un produit</p>
+                <div class="image">
+                    <img src="images/mission_2i_code.png.webp" alt="code SQL">
+                    <img src="images/mission_2i_requete-modified.png.webp" alt="requête Access">
+                </div>
+
+                <h2><strong>Question j :</strong> Couples de clients parisiens</h2>
+                <p>Un couple est une paire de deux clients différents, l'ordre ne comptant pas.
+                    J'utilise une auto-jointure de Clientele avec deux alias et la condition C1.CodeCli <
+                        C2.CodeCli . </p>
+                <div class="image">
+                    <img src="images/mission_2j_code.png.webp" alt="code SQL">
+                    <img src="images/mission_2j_requete-modified.png" alt="requête Access">
+                </div>
+                <h2><strong>Indicateur 2 :</strong> </h2>
+                <p>2 – CA total généré avec les fournisseurs de l'Union européenne  On part des lignes de commande et on remonte jusqu'au pays du fournisseur.
+                    Pour chaque ligne : quantité × (1 − remise) × coût × coefficient. La fonction 
+                    Sum
+                    additionne tout. Comme le résultat est une seule valeur, il n'y a ni 
+                    GROUP BY ni autre
+                    colonne. La France est « Membre » : ses fournisseurs sont comptés. Les frais de port ne
+                    sont pas inclus
+                </p>
+                <div class="image">
+                    <img src="images/image.png" alt="code SQL">
+                    <img src="images/image.png-7.webp" alt="requête Access">
+                </div>
+                 <h2><strong>Indicateur 3 :</strong> </h2>
+                 <p>2 – CA annuel des desserts et des boissons                                             Il faut un total par année et par catégorie : on regroupe donc sur ces deux
+                    colonnes (
+                    Year(M.DateCde) pour l'année). Le 
+                    SELECT ne contient que les colonnes du
+                    GROUP BY et la somme. Lecture prudente : la base démarre en juillet 2020 et ne compte
+                    que 5 commandes en 2022 ; seule 2021 est une année complète. Les boissons dominent
+                    (coefficient 2,5 contre 1,6 pour les desserts, et 35 produits contre 15)
+                </p>
+                <div class="image">
+                    <img src="images/image2.png-7 2.webp" alt="code SQL">
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p> 2026 - SAE 1.04 | Projet KDou - BUT Informatique</p>
+        </footer>
+    </body>
+</html>
